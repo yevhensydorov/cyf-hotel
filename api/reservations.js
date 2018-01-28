@@ -8,9 +8,19 @@ router.post("/reservations", (req, res) => {
   res.status(200).json(req.body.reservation);
 });
 
-router.get("/", (req, res) => {
-  // TODO read req.query.name or req.query.id to look up reservations and return
-  res.status(200).json({ reservations });
+router.get("/:id?", (req, res) => {
+  if (req.params.id) {
+    const filter = reservations.filter(
+      reservation => reservation.id === parseInt(req.params.id)
+    );
+    res.status(200).json({
+      reservations: filter
+    });
+  } else {
+    res.status(200).json({
+      reservations
+    });
+  }
 });
 
 router.get("/reservations/date-from/:dateFrom", (req, res) => {
