@@ -1,6 +1,8 @@
 const express = require("express");
 const router = express.Router();
 
+const reservations = require("../public/data/reservations.json");
+
 router.post("/reservations", (req, res) => {
   // TODO read req.body.reservation, look up price by room id and insert reservation into DB
   res.status(200).json(req.body.reservation);
@@ -8,19 +10,7 @@ router.post("/reservations", (req, res) => {
 
 router.get("/", (req, res) => {
   // TODO read req.query.name or req.query.id to look up reservations and return
-  res.status(200).json({
-    reservations: [
-      {
-        title: "Mr",
-        firstname: "Laurie",
-        surname: "Ainley",
-        email: "laurie@ainley.com",
-        roomId: 1,
-        checkInDate: "2017-10-10",
-        checkOutDate: "2017-10-17"
-      }
-    ]
-  });
+  res.status(200).json({ reservations });
 });
 
 router.get("/reservations/date-from/:dateFrom", (req, res) => {
