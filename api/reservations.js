@@ -6,7 +6,7 @@ router.post("/reservations", (req, res) => {
   res.status(200).json(req.body.reservation);
 });
 
-router.get("/reservations", (req, res) => {
+router.get("/", (req, res) => {
   // TODO read req.query.name or req.query.id to look up reservations and return
   res.status(200).json({
     reservations: [
