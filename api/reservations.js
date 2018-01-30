@@ -10,12 +10,9 @@ router.post("/reservations", (req, res) => {
 
 router.get("/:id?", (req, res) => {
   if (req.params.id) {
-    const filter = reservations.filter(
-      reservation => reservation.id === parseInt(req.params.id)
-    );
     res.status(200).json({
-      reservations: filter
-    });
+      reservations: reservations.filter(reservation => reservation.id === parseInt(req.params.id))
+  });
   } else {
     res.status(200).json({
       reservations
