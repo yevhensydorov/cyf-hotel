@@ -10,6 +10,8 @@ const apiRouter = require("./api");
 const app = express();
 const router = express.Router();
 
+const filePath = `${__dirname}/public/data/reservations.json`;
+
 app.engine(
   "hbs",
   exphbs({
@@ -27,13 +29,12 @@ app.use("/api", apiRouter);
 // handle HTTP POST requests
 app.use(bodyparser.json());
 
-const filePath = __dirname + "/public/data/reservations.json";
 
 app.get("/", function(req, res, next) {
   res.render("home");
 });
 
-app.get("/reservations/:id?", function(req, res, next) {
+app.get("/reservations/:id?", (req, res, next) => {
 	fs.readFile(filePath, (error, file) => {
 		const parsedFile = JSON.parse(file);
 		if(req.params.id){
