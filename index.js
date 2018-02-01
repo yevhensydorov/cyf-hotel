@@ -2,7 +2,7 @@ const SERVER_PORT = process.env.PORT || 8080;
 
 const express = require("express");
 const exphbs = require("express-handlebars");
-const bodyparser = require("body-parser");
+const bodyParser = require("body-parser");
 const fs = require("fs");
 
 const apiRouter = require("./api");
@@ -23,15 +23,42 @@ app.set("view engine", "hbs");
 
 app.use(express.static("public"));
 app.use(express.static("assets"));
+app.use(bodyParser.urlencoded({extended: true}));
+
 
 app.use("/api", apiRouter);
 
 // handle HTTP POST requests
-app.use(bodyparser.json());
+app.use(bodyParser.json());
 
 
 app.get("/", (req, res, next) => {
   res.render("home");
+});
+
+app.get("/reservations/new", (req, res) => {
+	res.render("new");
+});
+
+app.post("/reservations", (req, res) => {
+	let newReservation = {
+		id: Number(req.body.id),
+		customerId: Number(req.body.customerId),
+		roomId: Number(req.body.roomId),
+		checkInDate: req.body.checkInDate,
+		checkOutDate: req.body.checkOutDate,
+		roomPrice: req.body.roomPrice,
+		note: req.body.note
+	};
+
+	fs.readFile(filePath, (error, file) => {
+		console.log(error);
+    const parsedFile = JSON.parse(file.toString());
+    parsedFile.splice(0, 0, newReservation);
+
+    fs.writeFile(filePath, JSON.stringify(parsedFile, null, 2), error => {});
+    res.redirect("/reservations");
+  });
 });
 
 app.get("/reservations/:id?", (req, res, next) => {
@@ -45,25 +72,7 @@ app.get("/reservations/:id?", (req, res, next) => {
 	});
 });
 
-app.post("/reservations", (req, res) => {
-	let newReservation = {
-		id: req.body.id,
-		custId: req.body.custId,
-		roomId: req.body.roomId,
-		checkInDate: req.body.checkInDate,
-		checkOutDate: req.body.checkOutDate,
-		roomPrice: req.body.roomPrice,
-		note: req.body.note
-	};
 
-	fs.readFile(filePath, (error, file) => {
-    const parsedFile = JSON.parse(file.toString());
-    parsedFile.splice(0, 0, newReservation);
-
-    fs.writeFile(filePath, JSON.stringify(parsedFile, null, 2), error => {});
-    res.redirect("/reservations");
-  });
-});
 
 app.listen(SERVER_PORT, () => {
   console.info(`Server started at http://localhost:${SERVER_PORT}`);

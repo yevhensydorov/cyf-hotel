@@ -1,5 +1,14 @@
 [
   {
+    "id": 1,
+    "customerId": 23,
+    "roomId": 67,
+    "checkInDate": "2019-01-20",
+    "checkOutDate": "2019-01-25",
+    "roomPrice": "100",
+    "note": "test customer"
+  },
+  {
     "id": 48,
     "customerId": 59,
     "roomId": 29,

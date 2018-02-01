@@ -55,3 +55,13 @@
 .overflow-hidden {
   overflow: hidden;
 }
+
+.heading {
+  width: 100%;
+  text-align: center;
+}
+
+.form-wrap {
+  width: 30%;
+  margin: 25px auto;
+}
