@@ -30,9 +30,18 @@ app.use("/api", apiRouter);
 app.use(bodyparser.json());
 
 
-app.get("/", function(req, res, next) {
+app.get("/", (req, res, next) => {
   res.render("home");
 });
+
+app.get("/form", (req, res, next) => {
+	res.render("newReservations")
+	
+})
+
+app.post("/new-reservation" , (req, res, next) => {
+	res.redirect("/form");
+})
 
 app.get("/reservations/:id?", (req, res, next) => {
 	fs.readFile(filePath, (error, file) => {
@@ -43,6 +52,26 @@ app.get("/reservations/:id?", (req, res, next) => {
 			res.render("reservations", { reservations: parsedFile });
 		}
 	});
+});
+
+app.post("/reservations", (req, res) => {
+	let newReservation = {
+		id: req.body.id,
+		custId: req.body.custId,
+		roomId: req.body.roomId,
+		checkInDate: req.body.checkInDate,
+		checkOutDate: req.body.checkOutDate,
+		roomPrice: req.body.roomPrice,
+		note: req.body.note
+	};
+
+	fs.readFile(filePath, (error, file) => {
+    const parsedFile = JSON.parse(file.toString());
+    parsedFile.splice(0, 0, newReservation);
+
+    fs.writeFile(filePath, JSON.stringify(parsedFile, null, 2), error => {});
+    res.redirect("/reservations");
+  });
 });
 
 app.listen(SERVER_PORT, () => {
