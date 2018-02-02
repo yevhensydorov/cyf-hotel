@@ -1,66 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Accessing Elements in the DOM</title>
-
-    <style>
-        html {
-            font-family: sans-serif;
-            color: #333;
-        }
-
-        h1 {
-            text-align: center;
-            font-size: 50px;
-        }
-
-        form {
-            margin: 20px auto;
-            width: 300px;
-        }
-
-        form span {
-            margin-left: 21px;
-        }
-
-        input {
-            padding: 15px;
-            font-size: inherit;
-            margin-top: 9px;
-        }
-
-        input[type="text"] {
-
-            margin-bottom: 25px;
-            width: 100%;
-        }
-
-        input[type="date"] {
-            diplay: block;
-            margin-bottom: 25px;
-            width: 100%;
-        }
-
-        input[type="submit"] {
-            width: 300px;
-            height: 45px;
-            border: none;
-            background: steelblue;
-            color: white;
-        }
-    </style>
-
-</head>
-
-<body>
 
     <h1>Add new Reservations</h1>
     <div class="hi">
-        <form action = "/new-reservation" method = "POST">
+        <form action="/new-reservation" method="POST">
             <span>Id</span>
             <input type="text" name="id" placeholder="Id" />
             <span>customerId</span>
@@ -75,12 +16,8 @@
             <input type="text" name="roomPrice" placeholder="roomPrice" />
             <span>note</span>
             <input type="text" name="note" placeholder="note" />
-            <input type="submit" name="Submit" value = "send" />
+            <input type="submit" name="Submit" value="send" />
         </form>
 
 
 
-
-</body>
-
-</html>
