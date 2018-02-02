@@ -34,6 +34,15 @@ app.get("/", function(req, res, next) {
   res.render("home");
 });
 
+app.get("/form", (req, res, next) => {
+	res.render("newReservations")
+	
+})
+
+app.post("/new-reservation" , (req, res, next) => {
+	res.redirect("/form");
+})
+
 app.get("/reservations/:id?", (req, res, next) => {
 	fs.readFile(filePath, (error, file) => {
 		const parsedFile = JSON.parse(file);
