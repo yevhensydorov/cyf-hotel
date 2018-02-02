@@ -1,8 +1,7 @@
 <div class="container">
   <div class="row">
       <h1 class="heading">Add New Reservation</h1>
-      <div class="form-wrap">
-        <form action="/reservations" method="POST">
+        <form class="add-form" action="/reservations" method="POST">
           <div class="row control-group">
             <div class="form-group floating-label-form-group controls">
               <label for="id">Id</label>
@@ -10,56 +9,55 @@
             </div>
           </div>
 
-          <div class="row control-group">
+          <div class=" control-group">
             <div class="form-group floating-label-form-group controls">
               <label for="customerId">Customer Id</label>
               <input class="form-control" type="text" name="customerId" id="customerId" placeholder="Customer Id">
             </div>
           </div>
 
-          <div class="row control-group">
+          <div class=" control-group">
             <div class="form-group floating-label-form-group controls">
               <label for="roomId">Room Id</label>
               <input class="form-control" type="text" name="roomId" id="roomId" placeholder="Room Id">
             </div>
           </div>
 
-          <div class="row control-group">
+          <div class=" control-group">
             <div class="form-group floating-label-form-group controls">
               <label for="checkInDate">Check In Date</label>
               <input class="form-control" type="text" name="checkInDate" id="checkInDate" placeholder="Check In Date">
             </div>
           </div>
 
-          <div class="row control-group">
+          <div class=" control-group">
             <div class="form-group floating-label-form-group controls">
               <label for="checkOutDate">Check Out Date</label>
               <input class="form-control" type="text" name="checkOutDate" id="checkOutDate" placeholder="Check Out Date">
             </div>
           </div>
 
-          <div class="row control-group">
+          <div class=" control-group">
             <div class="form-group floating-label-form-group controls">
               <label for="roomPrice">Roop Price</label>
               <input class="form-control" type="text" name="roomPrice" id="roomPrice" placeholder="Room Price">
             </div>
           </div>
 
-          <div class="row control-group">
+          <div class=" control-group">
             <div class="form-group floating-label-form-group controls">
               <label for="note">Note</label>
               <input class="form-control" type="text" name="note" id="note" placeholder="Notes about Reservation">
             </div>
           </div>
-          
-          <div class="row">
+
+          <div class="control-group">
             <div class="form-group">
               <button type="submit" class="btn btn-default">Add</button>
             </div>
           </div>
 
         </form>
-      </div>
   </div>
 
       
