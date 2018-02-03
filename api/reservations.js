@@ -45,5 +45,16 @@ router.get("/reservations/date-from/:dateFrom", (req, res) => {
     ]
   });
 });
+// window.addEventListener('load', yourFunction, false);
+// var index,table = window.document.getElementsByClass("table")
+// for(var i = 1;i<table.rows.length; i++){
+//   table.rows[i].cells[5].onclick = function(){
+//     var c = confirm("Do you want to delete?")
+//     if(c===true){
+//       index= this.parentElement.rowIndex;
+//       table.deleteRow(index);
+//     }
+//   }
+// }
 
 module.exports = router;

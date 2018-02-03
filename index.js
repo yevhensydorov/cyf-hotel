@@ -38,6 +38,10 @@ app.get("/form", (req, res, next) => {
 	res.render("newReservations")
 	
 })
+app.get("/edit", (req, res, next) => {
+	res.render("edit");
+	
+})
 
 app.post("/new-reservation" , (req, res, next) => {
 	res.redirect("/form");
@@ -54,6 +58,30 @@ app.get("/reservations/:id?", (req, res, next) => {
 	});
 });
 
+<<<<<<< HEAD
+=======
+app.post("/reservations", (req, res) => {
+	let newReservation = {
+		id: req.body.id,
+		custId: req.body.custId,
+		roomId: req.body.roomId,
+		checkInDate: req.body.checkInDate,
+		checkOutDate: req.body.checkOutDate,
+		roomPrice: req.body.roomPrice,
+		note: req.body.note
+	};
+
+
+	fs.readFile(filePath, (error, file) => {
+    const parsedFile = JSON.parse(file.toString());
+    parsedFile.splice(0, 0, newReservation);
+
+    fs.writeFile(filePath, JSON.stringify(parsedFile, null, 2), error => {});
+    res.redirect("/reservations");
+  });
+});
+
+>>>>>>> 2041c945d7b2e2ce11c9f703a3d46fae293eae2d
 app.listen(SERVER_PORT, () => {
   console.info(`Server started at http://localhost:${SERVER_PORT}`);
 });
