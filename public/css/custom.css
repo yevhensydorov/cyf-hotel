@@ -24,6 +24,56 @@
   text-align: center;
 }
 
+
+/* newResesrvation css file......ibrahim's*/
+
+
+html {
+  font-family: sans-serif;
+  color: #333;
+}
+
+h1 {
+  text-align: center;
+  font-size: 50px;
+}
+
+form {
+  margin: 20px auto;
+  width: 300px;
+}
+
+form span {
+  margin-left: 21px;
+}
+
+input {
+  padding: 15px;
+  font-size: inherit;
+  margin-top: 9px;
+}
+
+input[type="text"] {
+
+  margin-bottom: 25px;
+  width: 100%;
+}
+
+input[type="date"] {
+  display: block;
+  margin-bottom: 25px;
+  width: 100%;
+}
+
+input[type="submit"] {
+  width: 300px;
+  height: 45px;
+  border: none;
+  background: steelblue;
+  color: white;
+}
+
+
 /*
  * Extra utilities
  */
@@ -55,6 +105,10 @@
 .overflow-hidden {
   overflow: hidden;
 }
-.fn-fetch{
-  margin-bottom: 15px;
-}
+<<<<<<< HEAD
+
+=======
+
+
+
+>>>>>>> b5905ac80ff9b9e147cff93665d1e0d76bdbf89e
