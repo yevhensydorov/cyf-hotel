@@ -38,6 +38,10 @@ app.get("/form", (req, res, next) => {
 	res.render("newReservations")
 	
 })
+app.get("/edit", (req, res, next) => {
+	res.render("edit");
+	
+})
 
 app.post("/new-reservation" , (req, res, next) => {
 	res.redirect("/form");
@@ -64,6 +68,7 @@ app.post("/reservations", (req, res) => {
 		roomPrice: req.body.roomPrice,
 		note: req.body.note
 	};
+
 
 	fs.readFile(filePath, (error, file) => {
     const parsedFile = JSON.parse(file.toString());
