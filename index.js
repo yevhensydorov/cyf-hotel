@@ -58,8 +58,6 @@ app.get("/reservations/:id?", (req, res, next) => {
 	});
 });
 
-<<<<<<< HEAD
-=======
 app.post("/reservations", (req, res) => {
 	let newReservation = {
 		id: req.body.id,
@@ -81,7 +79,6 @@ app.post("/reservations", (req, res) => {
   });
 });
 
->>>>>>> 2041c945d7b2e2ce11c9f703a3d46fae293eae2d
 app.listen(SERVER_PORT, () => {
   console.info(`Server started at http://localhost:${SERVER_PORT}`);
 });
