@@ -1,5 +1,41 @@
 [
   {
+    "id": "1",
+    "custId": "1",
+    "roomId": "1",
+    "checkInDate": "2017-11-12",
+    "checkOutDate": "2017-11-14",
+    "roomPrice": "1",
+    "note": "empty"
+  },
+  {
+    "id": "1",
+    "custId": "1",
+    "roomId": "1",
+    "checkInDate": "2017-12-12",
+    "checkOutDate": "2017-12-14",
+    "roomPrice": "1",
+    "note": "nothing"
+  },
+  {
+    "id": "3",
+    "custId": "54",
+    "roomId": "23",
+    "checkInDate": "2018-01-12",
+    "checkOutDate": "2018-01-15",
+    "roomPrice": "120",
+    "note": "single bed"
+  },
+  {
+    "id": "",
+    "custId": "",
+    "roomId": "",
+    "checkInDate": "",
+    "checkOutDate": "",
+    "roomPrice": "",
+    "note": ""
+  },
+  {
     "id": "546",
     "custId": "34",
     "roomId": "2",
