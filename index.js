@@ -23,6 +23,7 @@ app.set("view engine", "hbs");
 
 app.use(express.static("public"));
 app.use(express.static("assets"));
+app.use(bodyparser.urlencoded({extended: true}));
 
 app.use("/api", apiRouter);
 
@@ -34,20 +35,8 @@ app.get("/", function(req, res, next) {
   res.render("home");
 });
 
-app.get("/form", (req, res, next) => {
-	res.render("newReservations")
-	
-})
-app.get("/edit", (req, res, next) => {
-	res.render("editReservations");
-	
-})
-app.get("/reservations/newReservations", (req,res,next)=>{
+app.get("/reservations/new", (req,res,next)=>{
 	res.render("newReservations");
-})
-
-app.post("reservations/newReservations" , (req, res, next) => {
-	res.redirect("/form");
 })
 
 app.get("/reservations/:id?", (req, res, next) => {
