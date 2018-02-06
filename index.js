@@ -42,8 +42,11 @@ app.get("/edit", (req, res, next) => {
 	res.render("editReservations");
 	
 })
+app.get("/reservations/newReservations", (req,res,next)=>{
+	res.render("newReservations");
+})
 
-app.post("/new-reservation" , (req, res, next) => {
+app.post("reservations/newReservations" , (req, res, next) => {
 	res.redirect("/form");
 })
 
