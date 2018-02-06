@@ -39,7 +39,7 @@ app.get("/form", (req, res, next) => {
 	
 })
 app.get("/edit", (req, res, next) => {
-	res.render("edit");
+	res.render("editReservations");
 	
 })
 
