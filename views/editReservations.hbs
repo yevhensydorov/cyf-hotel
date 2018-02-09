@@ -24,9 +24,6 @@
       <h1>Edit Reservations</h1>
     </div>
   </div>
-  <div class="col-2">
-   {{!-- <button type="submit" class="btn btn-outline-primary fn-fetch"><a href="/form">New Reservations</a></button> --}}
-  </div>
   <div class="row">
     <div class="col">
       <table class="table">
@@ -42,7 +39,7 @@
           </tr>
         </thead>
         <tbody id="rows">
-          {{#each reservations}}
+          {{!-- {{#each reservations}} --}}
             <tr>
               <th scope="row"><a href={{ this.id }}>{{ this.id }}</a></th>
               <td>{{ this.customerId }}</td>
@@ -51,10 +48,8 @@
               <td>{{ this.checkOutDate }}</td>
               <td>{{ this.roomPrice }}</td>
               <td>{{ this.note }}</td>
-              <td><button type="submit" class="btn btn-warning "><a href= "/editReservations">Edit</a></button></td>
-              <td><button type="delete" class="btn btn-danger "><a href = "">Delete</a></button></td>
             </tr>
-          {{/each}}
+          {{!-- {{/each}} --}}
         </tbody>
       </table>
     </div>
