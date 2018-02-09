@@ -34,6 +34,9 @@ app.use(bodyparser.json());
 app.get("/", function(req, res, next) {
   res.render("home");
 });
+app.get("/reservations/edit", function(req, res, next) {
+  res.render("editReservations");
+});
 
 app.get("/reservations/new", (req,res,next)=>{
 	res.render("newReservations");
@@ -50,10 +53,11 @@ app.get("/reservations/:id?", (req, res, next) => {
 	});
 });
 
+
 app.post("/reservations", (req, res) => {
-	let newReservation = {
+	const newReservation = {
 		id: req.body.id,
-		custId: req.body.custId,
+		customerId: req.body.custId,
 		roomId: req.body.roomId,
 		checkInDate: req.body.checkInDate,
 		checkOutDate: req.body.checkOutDate,
@@ -61,14 +65,29 @@ app.post("/reservations", (req, res) => {
 		note: req.body.note
 	};
 
+	var validReservation = true;
+	for(var m in newReservation) {  
+		if(newReservation[m]==="" )
+		{validReservation=false}
+	};
 
-	fs.readFile(filePath, (error, file) => {
-    const parsedFile = JSON.parse(file.toString());
-    parsedFile.splice(0, 0, newReservation);
+	if (validReservation===false) {
+		res.send("");
+		res.redirect("/reservations/new");
+	} else {
+		fs.readFile(filePath, (error, file) => {
+			const stringFile = file.toString();
+			const parsedFile = JSON.parse(stringFile);
+			parsedFile.splice(0, 0, newReservation);
 
-    fs.writeFile(filePath, JSON.stringify(parsedFile, null, 2), error => {});
-    res.redirect("/reservations");
-  });
+			fs.writeFile(filePath, JSON.stringify(parsedFile, null, 2), function(){
+				res.redirect("/reservations");
+			});
+			
+		});
+	}
+	
+
 });
 
 app.listen(SERVER_PORT, () => {
